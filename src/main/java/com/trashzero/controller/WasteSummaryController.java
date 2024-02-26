@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/summary")
+@RequestMapping("/client")
 public class WasteSummaryController {
     private WasteSummaryService wasteSummaryService;
 
@@ -27,8 +27,8 @@ public class WasteSummaryController {
         return ResponseEntity.ok(summaryById);
     }
 
-    @GetMapping
-    public ResponseEntity<List<WasteSummaryDto>> getAllClients(){
+    @GetMapping("/all")
+    public ResponseEntity<java.lang.Object> getAllClients(){
         List<WasteSummaryDto> clients = wasteSummaryService.getAllClient();
         return ResponseEntity.ok(clients);
     }
@@ -38,6 +38,11 @@ public class WasteSummaryController {
                                                          @RequestBody WasteSummaryDto updatedClient){
         WasteSummaryDto wasteSummaryDto = wasteSummaryService.updateClient(clientId, updatedClient);
         return ResponseEntity.ok(wasteSummaryDto);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<java.lang.Object> deleteClient(@PathVariable("id") Long clientId){
+        wasteSummaryService.deleteClient(clientId);
+        return ResponseEntity.ok("Client Deleted Successfully!.");
     }
 
 

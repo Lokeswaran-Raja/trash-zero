@@ -10,7 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class WasteSummaryDto {
     private Long clientId;
-    private String clientName;
+    private String clientFirstName;
+    private String clientSecondName;
     private Double genWetWaste;
     private Double genDryWaste;
     private Double genDirRejects;

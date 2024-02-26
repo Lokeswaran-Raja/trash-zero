@@ -12,4 +12,7 @@ public interface WasteSummaryService {
     List<WasteSummaryDto> getAllClient();
 
     WasteSummaryDto updateClient(Long clientId, WasteSummaryDto updatedClient);
+
+    void  deleteClient (Long clientId);
+
 }

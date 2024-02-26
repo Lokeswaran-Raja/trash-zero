@@ -6,9 +6,11 @@ import com.trashzero.entity.WasteSummary;
 
 public class WasteSummaryMapper {
     public static WasteSummaryDto mapToWasteSummaryDto(WasteSummary wasteSummary){
+       String[] clientFullName= wasteSummary.getClientName().split(",");
         return new WasteSummaryDto(
                 wasteSummary.getClientId(),
-                wasteSummary.getClientName(),
+                clientFullName[0],
+                clientFullName[1],
                 wasteSummary.getGenWetWaste(),
                 wasteSummary.getGenDryWaste(),
                 wasteSummary.getGenDirRejects(),
@@ -19,7 +21,7 @@ public class WasteSummaryMapper {
     public static WasteSummary mapWasteSummary(WasteSummaryDto wasteSummaryDto){
         return new WasteSummary(
                 wasteSummaryDto.getClientId(),
-                wasteSummaryDto.getClientName(),
+                wasteSummaryDto.getClientFirstName()+","+wasteSummaryDto.getClientSecondName(),
                 wasteSummaryDto.getGenWetWaste(),
                 wasteSummaryDto.getGenDryWaste(),
                 wasteSummaryDto.getGenDirRejects(),

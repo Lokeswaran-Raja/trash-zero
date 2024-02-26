@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "wasteSummary")
+@Table(name = "waste_summary")
 public class WasteSummary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,16 +20,16 @@ public class WasteSummary {
     @Column(name = "client_name")
     private String clientName;
 
-    @Column(name = "gen_wetWaste")
+    @Column(name = "gen_wet_waste")
     private Double genWetWaste;
 
-    @Column(name = "gen_DryWaste")
+    @Column(name = "gen_dry_waste")
     private Double genDryWaste;
 
-    @Column(name = "gen_DirRejects")
+    @Column(name = "gen_dir_rejects")
     private Double genDirRejects;
 
-    @Column(name = "total_InWaste")
+    @Column(name = "total_in_waste")
     private Double totalInWaste;
 
 
